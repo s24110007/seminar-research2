@@ -11,8 +11,8 @@ book:
   date: today
   chapters:
     - index.qmd
-    - 01_研究概要.qmd
-    - 02_データ.qmd
+    - research_plan.qmd
+    - data_check.qmd
     - 03_分析手法.qmd
     - 04_結果と考察.qmd
     - 05_まとめ.qmd

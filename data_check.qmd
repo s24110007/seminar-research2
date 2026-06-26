@@ -1,0 +1,109 @@
+---
+title: "data_check"
+format: html
+---
+
+# 生成AIに関連する求人数の推移(2023年)
+
+![画像](unnamed (1).png)
+![画像](unnamed (2).png)
+![画像](unnamed (3).png)
+
+[出典](https://www.hiringlab.org/jp/blog/2023/08/29/%E6%96%B0%E8%88%88%E5%8A%B4%E5%83%8D%E5%B8%82%E5%A0%B4%EF%BC%9A%E7%94%9F%E6%88%90ai%E3%81%AB%E9%96%A2%E9%80%A3%E3%81%99%E3%82%8B%E8%81%B7%E3%81%AE%E5%8F%B0%E9%A0%AD/)
+
+
+# 情報通信業雇用数の推移
+
+
+```{r}
+#| message: false
+library(readr)
+df <- read_csv(
+  "001data.csv",
+  skip = 3,
+  col_names = c("年","月","情報通信業雇用者数"),
+  show_col_types = FALSE)
+```
+
+```{r}
+#| message: false
+library(dplyr)
+library(stringr)
+library(lubridate)
+
+# 数値化
+df$情報通信業雇用者数 <- as.numeric(
+  gsub("[()<> ]", "", df$情報通信業雇用者数)
+)
+
+# 年の欠損を補完
+df$年 <- zoo::na.locf(df$年)
+
+# 月から数字取得
+df$月数 <- as.numeric(str_extract(df$月, "\\d+"))
+
+# 和暦→西暦
+df$西暦 <- ifelse(
+  grepl("平成", df$年),
+  as.numeric(str_extract(df$年, "\\d+")) + 1988,
+  as.numeric(str_extract(df$年, "\\d+")) + 2018
+)
+
+```
+
+```{r}
+#| message: false
+df$年 <- gsub("元", "1", df$年)
+
+df$西暦 <- case_when(
+  grepl("平成", df$年) ~
+    as.numeric(str_extract(df$年, "\\d+")) + 1988,
+
+  grepl("令和", df$年) ~
+    as.numeric(str_extract(df$年, "\\d+")) + 2018,
+
+  TRUE ~ NA_real_
+)
+
+
+df$年 <- gsub("令和元年", "令和1年", df$年)
+
+df$年月 <- as.Date(
+  paste(df$西暦, df$月数, "01", sep = "-")
+)
+```
+
+
+```{r}
+#| message: false
+df <- df[, c(-4,-5,-6,-7,-8,-9)]
+df$情報通信業雇用者数 <- as.numeric(gsub("[()<>]", "", df$情報通信業雇用者数))
+
+head(df)
+```
+
+```{r}
+str(df)
+```
+
+
+```{r}
+colSums(is.na(df))
+
+df_clean <- df |> tidyr::drop_na()
+```
+
+
+```{r}
+colnames(df)
+```
+
+```{r}
+summary(df$情報通信業雇用者数)
+```
+
+
+```{r}
+saveRDS(df, "df_clean.rds")
+```
+

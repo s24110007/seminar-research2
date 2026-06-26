@@ -1,0 +1,72 @@
+---
+title: "descriptive"
+format: html
+---
+```{r}
+df <- readRDS("df_clean.rds")
+df
+```
+
+```{r}
+#| warning: false
+library(ggplot2)
+library(dplyr)
+
+ggplot(df,
+       aes(x = 年月,
+           y = 情報通信業雇用者数)) +
+  geom_line() +
+  labs(
+    title = "情報通信業雇用者数の推移",
+    x = "年",
+    y = "雇用者数（万人）"
+  ) +
+  theme_minimal()
+```
+
+```{r}
+ggplot(df,
+       aes(x = 年月,
+           y = 情報通信業雇用者数)) +
+  geom_line(linewidth = 1) +
+  geom_vline(
+    xintercept = as.Date("2022-11-30"),
+    linetype = "dashed"
+  ) +
+  annotate(
+    "text",
+    x = as.Date("2023-01-01"),
+    y = max(df$情報通信業雇用者数),
+    label = "ChatGPT公開"
+  ) +
+  labs(
+    title = "情報通信業雇用者数の推移",
+    x = "年",
+    y = "雇用者数（万人）"
+  ) +
+  theme_minimal()
+```
+
+```{r}
+年別 <- df %>%
+  group_by(西暦) %>%
+  summarise(
+    平均雇用者数 = mean(
+      情報通信業雇用者数,
+      na.rm = TRUE
+    )
+  )
+
+ggplot(年別,
+       aes(x = 西暦,
+           y = 平均雇用者数)) +
+  geom_line(linewidth = 1) +
+  geom_point() +
+  labs(
+    title = "情報通信業雇用者数の年平均推移",
+    x = "年",
+    y = "平均雇用者数"
+  ) +
+  theme_minimal()
+```
+
