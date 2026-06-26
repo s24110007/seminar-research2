@@ -30,143 +30,73 @@
     ]
   },
   {
-    "objectID": "01_研究概要.html",
-    "href": "01_研究概要.html",
-    "title": "1  研究概要",
+    "objectID": "research_plan.html",
+    "href": "research_plan.html",
+    "title": "1  研究計画書",
     "section": "",
-    "text": "1.1 研究件名\n東京都内シェアサイクル利用数の予測モデル構築に関する研究",
+    "text": "1.1 研究目的\nAIが社会に広く普及し、社会の中心となっていくであろうこれからの時代に向け、AIと社会の関連を知っておきたいと思った",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>研究概要</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>研究計画書</span>"
     ]
   },
   {
-    "objectID": "01_研究概要.html#研究の背景",
-    "href": "01_研究概要.html#研究の背景",
-    "title": "1  研究概要",
-    "section": "1.2 研究の背景",
-    "text": "1.2 研究の背景\n近年、都市部における交通手段としてシェアサイクル（自転車シェアリング）の利用が急速に拡大している。シェアサイクルは環境負荷の低い移動手段として注目されるだけでなく、ラストワンマイルの交通課題を解決する手段としても期待されている (Fishman 2016年)。\n\nFishman, Elliot. 2016年. 「Bikeshare: A Review of Recent Literature」. Transport Reviews 36 (1): 92–119. https://doi.org/10.1080/01441647.2015.1033036.\n\nEren, Emir, と Volkan Emre Uz. 2020年. 「A Review on Bike-Sharing: The Factors Affecting Bike-Sharing Demand」. Sustainable Cities and Society 54: 101882. https://doi.org/10.1016/j.scs.2019.101882.\n効率的な運営のためには、利用数の予測が不可欠である。気象条件や曜日・時間帯といった要因が利用パターンに大きく影響することが先行研究で示されている (Eren と Uz 2020年)。しかし、東京都内のシェアサイクルに特化した予測モデルの構築事例は限られており、地域特性を考慮した分析が求められている。",
+    "objectID": "research_plan.html#リサーチクエスチョン",
+    "href": "research_plan.html#リサーチクエスチョン",
+    "title": "1  研究計画書",
+    "section": "1.2 リサーチクエスチョン",
+    "text": "1.2 リサーチクエスチョン\n「生成AIの普及は求人に影響を与えたのか」",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>研究概要</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>研究計画書</span>"
     ]
   },
   {
-    "objectID": "01_研究概要.html#研究の目的",
-    "href": "01_研究概要.html#研究の目的",
-    "title": "1  研究概要",
-    "section": "1.3 研究の目的",
-    "text": "1.3 研究の目的\n本研究の目的は以下の通りである。\n\n東京都内のシェアサイクル利用データと気象データを用いて、時間帯別の利用数を予測するモデルを構築する\n線形回帰と回帰木（rpart）の予測精度を比較し、各手法の特性を明らかにする\n利用数に影響を与える要因を変数重要度分析により特定する",
+    "objectID": "research_plan.html#仮説",
+    "href": "research_plan.html#仮説",
+    "title": "1  研究計画書",
+    "section": "1.3 仮説",
+    "text": "1.3 仮説\n影響を与えたと考える（特に、IT分野の仕事など）",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>研究概要</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>研究計画書</span>"
     ]
   },
   {
-    "objectID": "01_研究概要.html#研究計画",
-    "href": "01_研究概要.html#研究計画",
-    "title": "1  研究概要",
-    "section": "1.4 研究計画",
-    "text": "1.4 研究計画\n\n\n\n表 1.1: 研究スケジュール\n\n\n\n\n\n期間\n作業内容\n状態\n\n\n\n\n第1-2週\nテーマ選定・先行研究調査\n完了\n\n\n第3-4週\nデータ収集・前処理\n完了\n\n\n第5-8週\nモデル構築・精度評価\n完了\n\n\n第9-10週\n結果分析・考察\n完了\n\n\n第11-12週\n報告書作成・発表準備\n進行中\n\n\n\n\n\n\n\n進捗チェックリスト\n\n先行研究の調査\nデータの取得と前処理\n探索的データ分析（EDA）\n予測モデルの構築\n精度評価と比較\n変数重要度の分析\n報告書の最終版作成\n発表資料の作成",
+    "objectID": "research_plan.html#使用データ",
+    "href": "research_plan.html#使用データ",
+    "title": "1  研究計画書",
+    "section": "1.4 使用データ",
+    "text": "1.4 使用データ\ngogle trandsの検索データ,indeed等のサイトの求人データ",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>研究概要</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>研究計画書</span>"
     ]
   },
   {
-    "objectID": "01_研究概要.html#研究体制",
-    "href": "01_研究概要.html#研究体制",
-    "title": "1  研究概要",
-    "section": "1.5 研究体制",
-    "text": "1.5 研究体制\n\n\n\n表 1.2: 研究体制\n\n\n\n\n\n項目\n内容\n\n\n\n\n所属\n東京国際大学 商学部 データサイエンスコース\n\n\n研究室\n竹田ゼミ（データアナリティクスゼミ）\n\n\n指導教員\n竹田 恒\n\n\n研究者\n氏名（学籍番号）\n\n\n研究期間\n2025年度 春学期\n\n\n使用言語\nR（4.1以上）\n\n\n主要パッケージ\nなし（基本パッケージのみ）",
+    "objectID": "research_plan.html#分析方法",
+    "href": "research_plan.html#分析方法",
+    "title": "1  研究計画書",
+    "section": "1.5 分析方法",
+    "text": "1.5 分析方法\n時系列比較　相関分析",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>研究概要</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>研究計画書</span>"
     ]
   },
   {
-    "objectID": "02_データ.html",
-    "href": "02_データ.html",
-    "title": "2  データ",
+    "objectID": "research_plan.html#スケジュール",
+    "href": "research_plan.html#スケジュール",
+    "title": "1  研究計画書",
+    "section": "1.6 スケジュール",
+    "text": "1.6 スケジュール\n\n\n\n回\n予定作業\n\n\n\n\n第4回\n求人サイトのデータを探しダウンロード\n\n\n第5回\n検索データとの比較 AI以外の要因を調査\n\n\n第6回\n時系列比較、見直し\n\n\n第7回\n中間発表\n\n\n第8回\nデータ整理など\n\n\n第9回\n相関分析、グラフ作成\n\n\n第10回\n考察\n\n\n第11回\n見直し\n\n\n第12回\n最終確認",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>研究計画書</span>"
+    ]
+  },
+  {
+    "objectID": "data_check.html",
+    "href": "data_check.html",
+    "title": "2  data_check",
     "section": "",
-    "text": "2.1 データの出典",
+    "text": "3 生成AIに関連する求人数の推移(2023年)\n  \n出典\n\n\n4 情報通信業雇用数の推移\n\n\n\n  \n\n\n\n\n\ntibble [292 × 6] (S3: tbl_df/tbl/data.frame)\n $ 年                : chr [1:292] \"平成14年\" \"平成14年\" \"平成14年\" \"平成14年\" ...\n $ 月                : chr [1:292] \"1月\" \"2月\" \"3月\" \"4月\" ...\n $ 情報通信業雇用者数: num [1:292] 153 156 156 159 157 159 160 164 171 160 ...\n $ 月数              : num [1:292] 1 2 3 4 5 6 7 8 9 10 ...\n $ 西暦              : num [1:292] 2002 2002 2002 2002 2002 ...\n $ 年月              : Date[1:292], format: \"2002-01-01\" \"2002-02-01\" ...\n\n\n\n\n                年                 月 情報通信業雇用者数               月数 \n                 0                  0                  0                  0 \n              西暦               年月 \n                 0                  0 \n\n\n\n\n[1] \"年\"                 \"月\"                 \"情報通信業雇用者数\"\n[4] \"月数\"               \"西暦\"               \"年月\"              \n\n\n\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  148.0   185.8   201.5   214.4   237.8   323.0",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>データ</span>"
-    ]
-  },
-  {
-    "objectID": "02_データ.html#データの出典",
-    "href": "02_データ.html#データの出典",
-    "title": "2  データ",
-    "section": "",
-    "text": "表 2.1: データの出典\n\n\n\n\n\n\n\n\n\n項目\n内容\n\n\n\n\n利用データ\n東京都シェアサイクル事業オープンデータ（※実際の出典に置き換えてください）\n\n\n気象データ\n気象庁 過去の気象データ検索（※実際の出典に置き換えてください）\n\n\n取得日\n2025年○月○日\n\n\n前処理スクリプト\nsrc/generate_data.R",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>データ</span>"
-    ]
-  },
-  {
-    "objectID": "02_データ.html#データの準備",
-    "href": "02_データ.html#データの準備",
-    "title": "2  データ",
-    "section": "2.2 データの準備",
-    "text": "2.2 データの準備",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>データ</span>"
-    ]
-  },
-  {
-    "objectID": "02_データ.html#データ概要",
-    "href": "02_データ.html#データ概要",
-    "title": "2  データ",
-    "section": "2.3 データ概要",
-    "text": "2.3 データ概要\n本研究では、東京都内のシェアサイクル利用数と気象データを組み合わせた合成データセットを使用する。\n\n\n\n表 2.2: データセットの概要\n\n\n\n\n\n項目\n内容\n\n\n\n\n対象期間\n2024年1月1日 〜 2024年12月31日（365日間）\n\n\n時間粒度\n1時間単位\n\n\nレコード数\n8,760件（365日 × 24時間）\n\n\n目的変数\n1時間あたりの利用数（count）\n\n\n説明変数\n気温、湿度、風速、降雨有無、曜日、時間帯\n\n\n\n\n\n\n\n変数一覧\n\n\n\n表 2.3: 変数一覧\n\n\n\n\n\n変数名\n型\n説明\n単位\n\n\n\n\ndate\nDate\n日付\n-\n\n\nhour\ninteger\n時間帯（0–23）\n時\n\n\ntemperature\nnumeric\n気温\n°C\n\n\nhumidity\nnumeric\n相対湿度\n%\n\n\nwind_speed\nnumeric\n風速\nm/s\n\n\nis_rain\ninteger\n降雨フラグ（0/1）\n-\n\n\ncount\ninteger\n利用数（目的変数）\n台",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>データ</span>"
-    ]
-  },
-  {
-    "objectID": "02_データ.html#基本統計量",
-    "href": "02_データ.html#基本統計量",
-    "title": "2  データ",
-    "section": "2.4 基本統計量",
-    "text": "2.4 基本統計量\n\n\n\n\n表 2.4: 基本統計量\n\n\n\n\n\n\n変数\n平均\n標準偏差\n最小\n中央値\n最大\n\n\n\n\ntemperature\n15.0\n9.0\n-6.1\n15.1\n36.0\n\n\nhumidity\n60.0\n13.4\n20.0\n60.0\n100.0\n\n\nwind_speed\n2.5\n1.8\n0.0\n2.1\n15.3\n\n\ncount\n63.8\n54.0\n0.0\n48.0\n277.0",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>データ</span>"
-    ]
-  },
-  {
-    "objectID": "02_データ.html#時系列の可視化",
-    "href": "02_データ.html#時系列の可視化",
-    "title": "2  データ",
-    "section": "2.5 時系列の可視化",
-    "text": "2.5 時系列の可視化\n図 2.1 は日別の平均利用数の推移を示す。夏季に利用数が増加し、冬季に減少する季節パターンが確認できる。\n\n\n\n\n\n\n\n\n図 2.1: 日別平均利用数の推移",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>データ</span>"
-    ]
-  },
-  {
-    "objectID": "02_データ.html#気象データとの関係",
-    "href": "02_データ.html#気象データとの関係",
-    "title": "2  データ",
-    "section": "2.6 気象データとの関係",
-    "text": "2.6 気象データとの関係\n図 2.2 は気温と利用数の関係を示す散布図である。気温が高いほど利用数が増加する正の相関が認められる。\n\n\n\n\n\n\n\n\n図 2.2: 気温と利用数の関係",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>データ</span>"
-    ]
-  },
-  {
-    "objectID": "02_データ.html#曜日時間帯パターン",
-    "href": "02_データ.html#曜日時間帯パターン",
-    "title": "2  データ",
-    "section": "2.7 曜日・時間帯パターン",
-    "text": "2.7 曜日・時間帯パターン\n\n時間帯別曜日別\n\n\n\n\n\n\n\n\n\n\n図 2.3: 時間帯別の平均利用数\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n図 2.4: 曜日別の平均利用数",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>データ</span>"
-    ]
-  },
-  {
-    "objectID": "02_データ.html#前処理パイプライン",
-    "href": "02_データ.html#前処理パイプライン",
-    "title": "2  データ",
-    "section": "2.8 前処理パイプライン",
-    "text": "2.8 前処理パイプライン\n\n\n\n\n\n\nflowchart LR\n    A[元データ取得] --&gt; B[欠損値処理]\n    B --&gt; C[特徴量生成]\n    C --&gt; D[時間帯・曜日&lt;br&gt;ダミー変数化]\n    D --&gt; E[訓練/テスト分割]\n    E --&gt; F[モデル入力]\n\n\n\n\n図 2.5: データ前処理パイプライン",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>データ</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>data_check</span>"
     ]
   },
   {
