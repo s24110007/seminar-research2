@@ -4,7 +4,6 @@ format: html
 ---
 ```{r}
 df <- readRDS("df_clean.rds")
-df
 ```
 
 ```{r}

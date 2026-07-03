@@ -13,7 +13,8 @@ book:
     - index.qmd
     - research_plan.qmd
     - data_check.qmd
-    - 03_分析手法.qmd
+    - descriptive.qmd
+    - regression.qmd
     - 04_結果と考察.qmd
     - 05_まとめ.qmd
 

@@ -1,0 +1,154 @@
+---
+title: "regression"
+format: html
+---
+
+```{r}
+#| message: false
+df <- readRDS("df_clean.rds")
+```
+
+```{r}
+#| warning: false
+library(dplyr)
+library(lubridate)
+library(readr)
+
+trends <- read.csv("multitimeline.csv")
+```
+
+
+```{r}
+# 日付をDate型に変換
+trends$日付 <- as.Date(trends$日付)
+
+# 「1 未満」などを1として扱う
+trends$ChatGPT検索量 <- gsub(" .*", "", trends$ChatGPT検索量)
+trends$ChatGPT検索量 <- as.numeric(trends$ChatGPT検索量)
+
+# 年月を作成
+trends <- trends %>%
+  mutate(
+    西暦 = year(日付),
+    月数 = month(日付)
+  )
+```
+
+```{r}
+trends_month <- trends %>%
+  group_by(西暦, 月数) %>%
+  summarise(
+    ChatGPT検索量 = mean(ChatGPT検索量, na.rm = TRUE),
+    .groups = "drop"
+  )
+```
+
+
+```{r}
+library(stringr)
+# 年の空欄を補完
+df$年 <- zoo::na.locf(df$年)
+
+# 月
+df$月数 <- as.numeric(str_extract(df$月, "\\d+"))
+
+# 和暦→西暦
+df$西暦 <- ifelse(
+  grepl("平成", df$年),
+  as.numeric(str_extract(df$年, "\\d+")) + 1988,
+  as.numeric(str_extract(df$年, "\\d+")) + 2018
+)
+```
+
+```{r}
+df <- left_join(
+  df,
+  trends_month,
+  by = c("西暦", "月数")
+)
+```
+
+```{r}
+df7 <- df %>%
+  filter(年月 >= as.Date("2021-07-01"))
+```
+
+
+```{r}
+library(ggplot2)
+
+ggplot(df7,
+       aes(
+         x = ChatGPT検索量,
+         y = 情報通信業雇用者数
+       )) +
+  geom_point() +
+  geom_smooth(
+    method = "lm",
+    se = FALSE
+  ) +
+  theme_minimal()
+```
+
+```{r}
+cor(
+  df7$ChatGPT検索量,
+  df7$情報通信業雇用者数,
+  use = "complete.obs"
+)
+
+#相関あり
+```
+
+
+```{r}
+cor.test(
+  df7$ChatGPT検索量,
+  df7$情報通信業雇用者数
+)
+```
+
+```{r}
+library(dplyr)
+
+df7 <- df7 %>%
+  arrange(年月) %>%
+  mutate(
+    ChatGPT_lag3 =
+      lag(ChatGPT検索量, 3)
+  )
+
+model <- lm(
+  情報通信業雇用者数 ~ ChatGPT_lag3,
+  data = df7
+)
+
+summary(model)
+```
+
+```{r}
+#pr 4.3e-10 < 0.01 非常に有意
+#t 7.635 > 2 非常に有意
+#Multiple R-squared:  0.5238 雇用者数の変動の52%を説明できる
+```
+
+
+```{r}
+library(dplyr)
+
+df7 <- df7 %>%
+  arrange(年月) %>%
+  mutate(月番号 = row_number())
+
+model2 <- lm(
+  情報通信業雇用者数 ~ ChatGPT_lag3 + 月番号,
+  data = df7
+)
+
+summary(model2)
+```
+```{r}
+#検索量pr 0.87 > 0.01 有意ではなくなった
+#時間経過pr 2.39e-05 < 0.01 有意
+```
+
