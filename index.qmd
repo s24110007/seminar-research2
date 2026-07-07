@@ -6,11 +6,12 @@ number-sections: false
 
 ## 本編 {.unnumbered}
 
-1. [研究概要](01_研究概要.qmd)
-2. [データ](02_データ.qmd)
-3. [分析手法](03_分析手法.qmd)
-4. [結果と考察](04_結果と考察.qmd)
-5. [まとめ](05_まとめ.qmd)
+1. [研究概要](research_plan.qmd)
+2. [データ](data_check.qmd)
+3. [分析1](descriptive.qmd)
+4. [分析2](regression.qmd)
+4. [結果と考察](kousatu.qmd)
+5. [参考](sankou.qmd)
 
 ## 発表資料 {.unnumbered}
 

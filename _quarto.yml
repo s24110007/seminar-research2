@@ -6,7 +6,7 @@ project:
     - css/
 
 book:
-  title: "仮"
+  title: "生成AIの普及は求人に影響を与えたのか"
   author: "東京国際大学 商学部 <br>データサイエンスコース<br>大山 翔"
   date: today
   chapters:
