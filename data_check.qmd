@@ -3,7 +3,7 @@ title: "データ"
 format: html
 ---
 
-# 生成AIに関連する求人数の推移(2023年)
+## 生成AIに関連する求人数の推移(2023年)
 
 ![画像](unnamed (1).png)
 ![画像](unnamed (2).png)
@@ -12,7 +12,7 @@ format: html
 [出典:Hiring Lab](https://www.hiringlab.org/jp/blog/2023/08/29/%E6%96%B0%E8%88%88%E5%8A%B4%E5%83%8D%E5%B8%82%E5%A0%B4%EF%BC%9A%E7%94%9F%E6%88%90ai%E3%81%AB%E9%96%A2%E9%80%A3%E3%81%99%E3%82%8B%E8%81%B7%E3%81%AE%E5%8F%B0%E9%A0%AD/)
 
 
-# 情報通信業雇用数の推移
+## 情報通信業雇用者数の推移
 
 
 ```{r}
@@ -79,7 +79,6 @@ df$年月 <- as.Date(
 df <- df[, c(-4,-5,-6,-7,-8,-9)]
 df$情報通信業雇用者数 <- as.numeric(gsub("[()<>]", "", df$情報通信業雇用者数))
 
-head(df)
 ```
 
 
