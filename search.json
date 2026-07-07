@@ -94,7 +94,7 @@
     "href": "data_check.html",
     "title": "2  data_check",
     "section": "",
-    "text": "3 生成AIに関連する求人数の推移(2023年)\n  \n出典\n\n\n4 情報通信業雇用数の推移\n\n\n\n  \n\n\n\n\n\ntibble [292 × 6] (S3: tbl_df/tbl/data.frame)\n $ 年                : chr [1:292] \"平成14年\" \"平成14年\" \"平成14年\" \"平成14年\" ...\n $ 月                : chr [1:292] \"1月\" \"2月\" \"3月\" \"4月\" ...\n $ 情報通信業雇用者数: num [1:292] 153 156 156 159 157 159 160 164 171 160 ...\n $ 月数              : num [1:292] 1 2 3 4 5 6 7 8 9 10 ...\n $ 西暦              : num [1:292] 2002 2002 2002 2002 2002 ...\n $ 年月              : Date[1:292], format: \"2002-01-01\" \"2002-02-01\" ...\n\n\n\n\n                年                 月 情報通信業雇用者数               月数 \n                 0                  0                  0                  0 \n              西暦               年月 \n                 0                  0 \n\n\n\n\n[1] \"年\"                 \"月\"                 \"情報通信業雇用者数\"\n[4] \"月数\"               \"西暦\"               \"年月\"              \n\n\n\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  148.0   185.8   201.5   214.4   237.8   323.0",
+    "text": "3 生成AIに関連する求人数の推移(2023年)\n  \n出典:Hiring Lab\n\n\n4 情報通信業雇用数の推移\n\n\n\n  \n\n\n\n\n\ntibble [292 × 6] (S3: tbl_df/tbl/data.frame)\n $ 年                : chr [1:292] \"平成14年\" \"平成14年\" \"平成14年\" \"平成14年\" ...\n $ 月                : chr [1:292] \"1月\" \"2月\" \"3月\" \"4月\" ...\n $ 情報通信業雇用者数: num [1:292] 153 156 156 159 157 159 160 164 171 160 ...\n $ 月数              : num [1:292] 1 2 3 4 5 6 7 8 9 10 ...\n $ 西暦              : num [1:292] 2002 2002 2002 2002 2002 ...\n $ 年月              : Date[1:292], format: \"2002-01-01\" \"2002-02-01\" ...\n\n\n\n\n                年                 月 情報通信業雇用者数               月数 \n                 0                  0                  0                  0 \n              西暦               年月 \n                 0                  0 \n\n\n\n\n[1] \"年\"                 \"月\"                 \"情報通信業雇用者数\"\n[4] \"月数\"               \"西暦\"               \"年月\"              \n\n\n\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  148.0   185.8   201.5   214.4   237.8   323.0",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>data_check</span>"
     ]
@@ -104,129 +104,29 @@
     "href": "regression.html",
     "title": "4  regression",
     "section": "",
-    "text": "`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n[1] 0.7780694\n\n\n\n\n\n    Pearson's product-moment correlation\n\ndata:  df7$ChatGPT検索量 and df7$情報通信業雇用者数\nt = 9.2689, df = 56, p-value = 6.649e-13\nalternative hypothesis: true correlation is not equal to 0\n95 percent confidence interval:\n 0.6505075 0.8629387\nsample estimates:\n      cor \n0.7780694 \n\n\n\n\n\nCall:\nlm(formula = 情報通信業雇用者数 ~ ChatGPT_lag3, data = df7)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-25.2886  -5.7344   0.7114   7.8478  21.4568 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  276.28861    1.95919 141.022  &lt; 2e-16 ***\nChatGPT_lag3   0.39381    0.05158   7.635  4.3e-10 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 11.39 on 53 degrees of freedom\n  (3 observations deleted due to missingness)\nMultiple R-squared:  0.5238,    Adjusted R-squared:  0.5148 \nF-statistic: 58.29 on 1 and 53 DF,  p-value: 4.302e-10\n\n\n\n\n\nCall:\nlm(formula = 情報通信業雇用者数 ~ ChatGPT_lag3 + 月番号, \n    data = df7)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-22.528  -6.178   1.669   5.832  19.234 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  260.44696    3.79729  68.588  &lt; 2e-16 ***\nChatGPT_lag3   0.02240    0.09123   0.246    0.807    \n月番号         0.79375    0.17104   4.641 2.39e-05 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 9.666 on 52 degrees of freedom\n  (3 observations deleted due to missingness)\nMultiple R-squared:  0.6632,    Adjusted R-squared:  0.6503 \nF-statistic:  51.2 on 2 and 52 DF,  p-value: 5.135e-13",
+    "text": "5 情報通信業雇用数とChatGPTのgoogle検索量の分析\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n[1] 0.7780694\n\n\n\n相関あり\n\n\n\nCall:\nlm(formula = 情報通信業雇用者数 ~ ChatGPT_lag3, data = df7)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-25.2886  -5.7344   0.7114   7.8478  21.4568 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  276.28861    1.95919 141.022  &lt; 2e-16 ***\nChatGPT_lag3   0.39381    0.05158   7.635  4.3e-10 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 11.39 on 53 degrees of freedom\n  (3 observations deleted due to missingness)\nMultiple R-squared:  0.5238,    Adjusted R-squared:  0.5148 \nF-statistic: 58.29 on 1 and 53 DF,  p-value: 4.302e-10\n\n\n\n\npr 4.3e-10 &lt; 0.01 非常に有意\n\n\nt 7.635 &gt; 2 非常に有意\n\n\nMultiple R-squared: 0.5238  雇用者数の変動の52%を説明できる\n\n\n\n6 時間の経過を変数として追加\n\n\n\nCall:\nlm(formula = 情報通信業雇用者数 ~ ChatGPT_lag3 + 月番号, \n    data = df7)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-22.528  -6.178   1.669   5.832  19.234 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  260.44696    3.79729  68.588  &lt; 2e-16 ***\nChatGPT_lag3   0.02240    0.09123   0.246    0.807    \n月番号         0.79375    0.17104   4.641 2.39e-05 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 9.666 on 52 degrees of freedom\n  (3 observations deleted due to missingness)\nMultiple R-squared:  0.6632,    Adjusted R-squared:  0.6503 \nF-statistic:  51.2 on 2 and 52 DF,  p-value: 5.135e-13\n\n\n\n検索量pr 0.87 &gt; 0.01 有意ではなくなった\n\n\n時間経過pr 2.39e-05 &lt; 0.01 有意\n\n\n\n7 検索量データを「生成AI」に変更\n\n\n\n  \n\n\n\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\n[1] 0.8282768\n\n\n\n\n\nCall:\nlm(formula = 情報通信業雇用者数 ~ ai_lag3, data = dfai)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-22.482  -6.218   2.215   5.498  20.115 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 269.40287    2.09704 128.468  &lt; 2e-16 ***\nai_lag3       0.48243    0.04867   9.913 1.14e-13 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 9.765 on 53 degrees of freedom\n  (3 observations deleted due to missingness)\nMultiple R-squared:  0.6496,    Adjusted R-squared:  0.643 \nF-statistic: 98.27 on 1 and 53 DF,  p-value: 1.141e-13\n\n\n\npr 1.14e-13 &lt; 0.01 非常に有意\n\n\nt 9.913 &gt; 2 非常に有意\n\n\nMultiple R-squared: 0.6496  雇用者数の変動の65%を説明できる\n\n\n\n8 時間経過を追加\n\n\n\nCall:\nlm(formula = 情報通信業雇用者数 ~ ai_lag3 + 月番号, \n    data = dfai)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-22.495  -6.228   1.840   6.288  19.695 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 262.1992     5.1274  51.137   &lt;2e-16 ***\nai_lag3       0.1301     0.2344   0.555    0.581    \n月番号        0.6135     0.3995   1.536    0.131    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 9.643 on 52 degrees of freedom\n  (3 observations deleted due to missingness)\nMultiple R-squared:  0.6648,    Adjusted R-squared:  0.6519 \nF-statistic: 51.57 on 2 and 52 DF,  p-value: 4.538e-13\n\n\n\n検索量pr 0.581 &gt; 0.01 有意ではなくなった\n\n\n時間経過pr 0.131 &gt; 0.01 有意でない",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>regression</span>"
     ]
   },
   {
-    "objectID": "04_結果と考察.html",
-    "href": "04_結果と考察.html",
-    "title": "5  結果と考察",
+    "objectID": "kousatu.html",
+    "href": "kousatu.html",
+    "title": "5  kousatu",
     "section": "",
-    "text": "5.1 モデル学習\n第2章と同一のデータを読み込み、訓練データ（80%）とテストデータ（20%）に分割した。線形回帰（lm）と回帰木（rpart）の2モデルを学習させた。",
+    "text": "6 分析結果と考察\n本研究では生成ＡＩの普及が求人に影響を与えたのかについて調査した。\n結果、Google上での生成AI関連の検索量とAIに関連が深い情報通信業の雇用者数には有意な正の相関がある(pr 4.3e-10 &lt; 0.01 )ことがわかったが, \n時間経過(月番号)を変数として追加すると相関は見られなくなり(pr 0.87 &gt; 0.01)、月番号が正の相関を示した(pr 2.39e-05 &lt; 0.01)  この回帰分析で見られた関係は、検索量と雇用者数の相関ではなく、時間経過による両者の増加傾向を反映したものである可能性がある。 \nこの結果は、生成AIへの関心と情報通信業雇用数の増加は同じ時期に起こっているが時間経過による社会全体の変化である可能性があることを示し、仮説(生成ＡＩの普及が求人に影響を与えた)とは一致しなかったと言える。  これを踏まえると、生成AIが今以上に普及した際も就職への影響は想定より少ないのではないかと考えることもできる。 \n一方で全く影響を与えていないということはなく、最初に提示したデータでは生成AIに関連する求人数が増加していると示しているが、\nこのような結果となった一因として、使用したデータが実際に雇用された就業者を指す指標であり求人数そのものの増加ではないこと、情報通信業という分類が景気動向、DX推進、IT投資、人手不足など、生成AI以外の多くの要因の影響も受けるため、生成AIの影響だけを完全に切り分けることはできなかったこと　などが考えられ、 \n求人サイトなどからAI関連の正確な求人数などを取得し変数にすることでより正確な分析ができるかもしれない。  また、AI普及の指標として検索数だけでなく企業の生成AI導入率やAI関連投資額などの指標を組み合わせることで、より精度の高い分析ができると考える。",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>結果と考察</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>kousatu</span>"
     ]
   },
   {
-    "objectID": "04_結果と考察.html#精度比較",
-    "href": "04_結果と考察.html#精度比較",
-    "title": "5  結果と考察",
-    "section": "5.2 精度比較",
-    "text": "5.2 精度比較\n表 5.1 に各モデルのテストデータに対する精度評価結果を示す。\n\n\n\n\n表 5.1: モデル精度の比較\n\n\n\n\n\n\nモデル\nMAE\nRMSE\nR²\n\n\n\n\n線形回帰\n39.59\n48.94\n0.19\n\n\n回帰木（rpart）\n18.46\n23.25\n0.82\n\n\n\n\n\n\n\n\n回帰木は全ての指標で線形回帰を上回っており、非線形な利用パターンの捕捉に有効であることが示された。",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>結果と考察</span>"
-    ]
-  },
-  {
-    "objectID": "04_結果と考察.html#予測結果の可視化",
-    "href": "04_結果と考察.html#予測結果の可視化",
-    "title": "5  結果と考察",
-    "section": "5.3 予測結果の可視化",
-    "text": "5.3 予測結果の可視化\n図 5.1 にテストデータの先頭200件における実測値と予測値の比較を示す。\n\n\n\n\n\n\n\n\n図 5.1: 実測値と予測値の比較（テストデータ先頭200件）",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>結果と考察</span>"
-    ]
-  },
-  {
-    "objectID": "04_結果と考察.html#誤差分析",
-    "href": "04_結果と考察.html#誤差分析",
-    "title": "5  結果と考察",
-    "section": "5.4 誤差分析",
-    "text": "5.4 誤差分析\n\n\n\n\n\n\n\n\n図 5.2: 予測誤差の分布\n\n\n\n\n\n図 5.2 より、回帰木の誤差分布は線形回帰と比べて中心（誤差ゼロ付近）に集中しており、予測のばらつきが小さいことが確認できる。",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>結果と考察</span>"
-    ]
-  },
-  {
-    "objectID": "04_結果と考察.html#変数重要度",
-    "href": "04_結果と考察.html#変数重要度",
-    "title": "5  結果と考察",
-    "section": "5.5 変数重要度",
-    "text": "5.5 変数重要度\n\n\n\n\n\n\n\n\n図 5.3: 回帰木の変数重要度\n\n\n\n\n\n図 5.3 より、hour（時間帯）と temperature（気温）が予測への寄与度が最も高い変数であることがわかる。",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>結果と考察</span>"
-    ]
-  },
-  {
-    "objectID": "04_結果と考察.html#曜日別精度",
-    "href": "04_結果と考察.html#曜日別精度",
-    "title": "5  結果と考察",
-    "section": "5.6 曜日別精度",
-    "text": "5.6 曜日別精度\n\nMAERMSE\n\n\n\n\n\n\n\n\n\n\n図 5.4: 曜日別 MAE（回帰木）\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n図 5.5: 曜日別 RMSE（回帰木）",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>結果と考察</span>"
-    ]
-  },
-  {
-    "objectID": "04_結果と考察.html#考察",
-    "href": "04_結果と考察.html#考察",
-    "title": "5  結果と考察",
-    "section": "5.7 考察",
-    "text": "5.7 考察\n本章の分析結果から、以下の考察が得られる。\n\nモデル性能について\n回帰木は線形回帰と比較して全ての評価指標で優れた性能を示した（表 5.1）。これは、シェアサイクルの利用パターンが時間帯や気象条件と非線形な関係を持つためと考えられる。例えば、通勤時間帯（7-9時、17-19時）に利用数が集中するパターンは、線形モデルでは捉えにくい。\n\n\n影響要因について\n変数重要度分析（図 5.3）から、以下の知見が得られた。\n\n時間帯（hour） が最も重要な変数であり、シェアサイクルの利用は通勤・通学の移動パターンに強く依存している\n気温（temperature） が2番目に重要であり、気象条件がシェアサイクルの利用判断に大きく影響する。先行研究 (Eren と Uz 2020年) の知見とも一致する\n降雨（is_rain） は利用数を大きく減少させる要因であり、需要予測において重要な変数である\n\n\nEren, Emir, と Volkan Emre Uz. 2020年. 「A Review on Bike-Sharing: The Factors Affecting Bike-Sharing Demand」. Sustainable Cities and Society 54: 101882. https://doi.org/10.1016/j.scs.2019.101882.\n\n\n先行研究との比較\nFanaee-T と Gama (2014年) が示したバイクシェアリングデータにおけるイベント検出の知見と同様に、気象条件と時間帯が利用パターンの主要な決定要因であることが確認された。また、Singhvi ほか (2015年) が報告した NYC Citi Bike の予測事例と比較しても、非線形手法の有効性は同様の傾向を示している。\n\n\n\nFanaee-T, Hadi, と João Gama. 2014年. 「Event Labeling Combining Ensemble Detectors and Background Knowledge」. Progress in Artificial Intelligence 2 (2–3): 113–27. https://doi.org/10.1007/s13748-013-0040-3.\n\nSinghvi, Divya, Somya Singhvi, Peter I. Frazier, ほか. 2015年. 「Predicting Bike-Share Usage in Practice: NYC Citi Bike Case Study」. INFORMS Transportation Science and Logistics Society Workshop.",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>結果と考察</span>"
-    ]
-  },
-  {
-    "objectID": "05_まとめ.html",
-    "href": "05_まとめ.html",
-    "title": "6  まとめ",
+    "objectID": "sankou.html",
+    "href": "sankou.html",
+    "title": "6  sankou",
     "section": "",
-    "text": "6.1 研究成果の要約\n本研究では、東京都内のシェアサイクル利用数を予測するモデルの構築を行い、以下の成果を得た。",
+    "text": "参考\nHiring Lab\nGoogle trands\ne-stat\nchat gpt",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>まとめ</span>"
-    ]
-  },
-  {
-    "objectID": "05_まとめ.html#研究成果の要約",
-    "href": "05_まとめ.html#研究成果の要約",
-    "title": "6  まとめ",
-    "section": "",
-    "text": "データの特性把握： シェアサイクルの利用数は気温・降雨・曜日・時間帯によって大きく変動することを確認した。特に気温との正の相関と、降雨時の利用数減少が顕著であった。\n予測モデルの構築と比較： 線形回帰と回帰木（rpart）の2手法でモデルを構築し、回帰木が全ての評価指標で優れた精度を示した。回帰木のRMSEは線形回帰と比較して改善が得られた。\n影響要因の特定： 変数重要度分析により、時間帯（hour）と気温（temperature）が利用数の予測に最も寄与する変数であることを明らかにした。",
-    "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>まとめ</span>"
-    ]
-  },
-  {
-    "objectID": "05_まとめ.html#研究の限界",
-    "href": "05_まとめ.html#研究の限界",
-    "title": "6  まとめ",
-    "section": "6.2 研究の限界",
-    "text": "6.2 研究の限界\n本研究には以下の限界がある。\n\n合成データの使用： 本テンプレートでは分析手法の実演を目的として合成データを使用している。実際の研究では、自治体やサービス事業者が公開する実データを用いる必要がある。\n空間的要因の未考慮： ステーションの立地（駅からの距離、オフィス街かどうか等）を変数に含めていない。\nモデルの単純さ： 回帰木の剪定パラメータのチューニングを最小限に留めており、ランダムフォレストや勾配ブースティング等のアンサンブル手法で精度向上の余地がある。",
-    "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>まとめ</span>"
-    ]
-  },
-  {
-    "objectID": "05_まとめ.html#今後の課題",
-    "href": "05_まとめ.html#今後の課題",
-    "title": "6  まとめ",
-    "section": "6.3 今後の課題",
-    "text": "6.3 今後の課題\n\n実データ（自治体オープンデータ等）を用いた分析の実施\nステーション別の利用予測モデルの構築\nランダムフォレストや勾配ブースティング等の高度な手法との比較\nリアルタイム予測システムのプロトタイプ開発\n需要予測に基づく最適な自転車再配置アルゴリズムの検討",
-    "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>まとめ</span>"
-    ]
-  },
-  {
-    "objectID": "05_まとめ.html#謝辞",
-    "href": "05_まとめ.html#謝辞",
-    "title": "6  まとめ",
-    "section": "6.4 謝辞",
-    "text": "6.4 謝辞\n本研究を進めるにあたり、丁寧なご指導をいただいた竹田恒先生に深く感謝いたします。また、データサイエンスコースの同期の皆さんとの議論は、研究の方向性を考える上で大変参考になりました。",
-    "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>まとめ</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>sankou</span>"
     ]
   }
 ]
