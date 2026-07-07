@@ -15,8 +15,8 @@ book:
     - data_check.qmd
     - descriptive.qmd
     - regression.qmd
-    - 04_結果と考察.qmd
-    - 05_まとめ.qmd
+    - kousatu.qmd
+    - sankou.qmd
 
 bibliography: ref/references.bib
 

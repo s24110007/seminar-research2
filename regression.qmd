@@ -3,6 +3,8 @@ title: "regression"
 format: html
 ---
 
+# 情報通信業雇用数とChatGPTのgoogle検索量の分析
+
 ```{r}
 #| message: false
 df <- readRDS("df_clean.rds")
@@ -96,17 +98,8 @@ cor(
   df7$情報通信業雇用者数,
   use = "complete.obs"
 )
-
-#相関あり
 ```
-
-
-```{r}
-cor.test(
-  df7$ChatGPT検索量,
-  df7$情報通信業雇用者数
-)
-```
+##### 相関あり
 
 ```{r}
 library(dplyr)
@@ -125,14 +118,12 @@ model <- lm(
 
 summary(model)
 ```
-
-```{r}
-#pr 4.3e-10 < 0.01 非常に有意
-#t 7.635 > 2 非常に有意
-#Multiple R-squared:  0.5238 雇用者数の変動の52%を説明できる
-```
+##### pr 4.3e-10 < 0.01 非常に有意
+##### t 7.635 > 2 非常に有意
+##### Multiple R-squared:  0.5238\  雇用者数の変動の52%を説明できる
 
 
+# 時間の経過を変数として追加
 ```{r}
 library(dplyr)
 
@@ -147,8 +138,118 @@ model2 <- lm(
 
 summary(model2)
 ```
+
+##### 検索量pr 0.87 > 0.01 有意ではなくなった
+##### 時間経過pr 2.39e-05 < 0.01 有意
+
+# 検索量データを「生成AI」に変更
+
 ```{r}
-#検索量pr 0.87 > 0.01 有意ではなくなった
-#時間経過pr 2.39e-05 < 0.01 有意
+aisa <- read.csv("multi.csv")
 ```
+
+
+```{r}
+# 日付をDate型に変換
+aisa$日付 <- as.Date(aisa$日付)
+
+# 「1 未満」などを1として扱う
+aisa$生成ai検索量 <- gsub(" .*", "", aisa$生成ai検索量)
+aisa$生成ai検索量 <- as.numeric(aisa$生成ai検索量)
+
+# 年月を作成
+aisa <- aisa %>%
+  mutate(
+    西暦 = year(日付),
+    月数 = month(日付)
+  )
+```
+
+```{r}
+ais_month <- aisa %>%
+  group_by(西暦, 月数) %>%
+  summarise(
+    生成ai検索量 = mean(生成ai検索量, na.rm = TRUE),
+    .groups = "drop"
+  )
+```
+
+
+```{r}
+dfai <- left_join(
+  df,
+  ais_month,
+  by = c("西暦", "月数")
+)
+
+dfai <- dfai %>%
+  filter(年月 >= as.Date("2021-07-01"))
+
+dfai
+```
+
+```{r}
+library(ggplot2)
+
+ggplot(dfai,
+       aes(
+         x = 生成ai検索量,
+         y = 情報通信業雇用者数
+       )) +
+  geom_point() +
+  geom_smooth(
+    method = "lm",
+    se = FALSE
+  ) +
+  theme_minimal()
+```
+
+```{r}
+cor(
+  dfai$生成ai検索量,
+  dfai$情報通信業雇用者数,
+  use = "complete.obs"
+)
+```
+
+```{r}
+library(dplyr)
+
+dfai <- dfai %>%
+  arrange(年月) %>%
+  mutate(
+    ai_lag3 =
+      lag(生成ai検索量, 3)
+  )
+
+model3 <- lm(
+  情報通信業雇用者数 ~ ai_lag3,
+  data = dfai
+)
+
+summary(model3)
+```
+#### pr 1.14e-13 < 0.01 非常に有意
+#### t 9.913 > 2 非常に有意
+#### Multiple R-squared:  0.6496\  雇用者数の変動の65%を説明できる
+
+
+# 時間経過を追加
+```{r}
+library(dplyr)
+
+dfai <- dfai %>%
+  arrange(年月) %>%
+  mutate(月番号 = row_number())
+
+model4 <- lm(
+  情報通信業雇用者数 ~ ai_lag3 + 月番号,
+  data = dfai
+)
+
+summary(model4)
+```
+
+##### 検索量pr 0.581 > 0.01 有意ではなくなった
+##### 時間経過pr 0.131 > 0.01 有意でない
 
