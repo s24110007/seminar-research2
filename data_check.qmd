@@ -1,5 +1,5 @@
 ---
-title: "data_check"
+title: "データ"
 format: html
 ---
 
